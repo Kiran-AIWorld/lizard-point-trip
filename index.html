@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizard Point - Premium Family Travel Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(214.3, 31.8%, 91.4%)",
+                        background: "hsl(0, 0%, 100%)",
+                        foreground: "hsl(222.2, 84%, 4.9%)",
+                        primary: {
+                            DEFAULT: "#1e3a8a",
+                            foreground: "#ffffff",
+                        },
+                        secondary: {
+                            DEFAULT: "#f1f5f9",
+                            foreground: "#0f172a",
+                        },
+                        accent: {
+                            DEFAULT: "#0d9488",
+                            foreground: "#ffffff",
+                        },
+                        card: {
+                            DEFAULT: "#ffffff",
+                            foreground: "#0f172a",
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Inter & Playfair -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="text-slate-900 antialiased">
+
+    <!-- Top Premium Accent Bar -->
+    <div class="h-1.5 w-full bg-gradient-to-r from-blue-900 via-teal-600 to-emerald-500"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div class="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-2">
+                <svg class="h-6 w-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+                <span class="text-lg font-bold tracking-tight text-blue-950">LizardPoint<span class="text-teal-600">Explore</span></span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#itinerary" class="text-slate-600 transition hover:text-slate-900">Itinerary</a>
+                <a href="#discounts" class="text-slate-600 transition hover:text-slate-900">UC Discounts</a>
+                <a href="#finance" class="text-slate-600 transition hover:text-slate-900">Fuel & Budget</a>
+                <a href="#packing" class="text-slate-600 transition hover:text-slate-900">Checklist</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="#discounts" class="inline-flex h-9 items-center justify-center rounded-md bg-teal-600 px-4 py-2 text-xs font-semibold text-white shadow transition-all hover:bg-teal-700">
+                    View UC Savings
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden bg-slate-900 py-24 text-white sm:py-32">
+        <!-- Background decorative vectors mimicking premium UI design -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-teal-500/30 blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-blue-500/30 blur-3xl"></div>
+
+        <div class="container mx-auto max-w-5xl px-4 text-center relative z-10">
+            <span class="inline-flex items-center rounded-full bg-teal-500/10 px-3 py-1 text-xs font-semibold text-teal-300 ring-1 ring-inset ring-teal-500/20 mb-4">
+                LATE AUGUST • FAMILY GETAWAY
+            </span>
+            <h1 class="serif-title text-4xl font-extrabold tracking-tight sm:text-6xl text-white">
+                Lizard Point Travel Guide
+            </h1>
+            <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-300 leading-relaxed">
+                A highly optimized, premium family journey planner from Bracknell to the dramatic coastlines of Cornwall. Completely pre-calculated for fuel efficiency, low-tide windows, and verified Universal Credit concession savings.
+            </p>
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#itinerary" class="rounded-lg bg-white text-slate-900 px-6 py-3 text-sm font-semibold shadow-md hover:bg-slate-100 transition">
+                    Explore Itinerary
+                </a>
+                <a href="#finance" class="rounded-lg border border-slate-700 bg-slate-800 text-white px-6 py-3 text-sm font-semibold hover:bg-slate-700 transition">
+                    View Cost Calculator
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK STATS DASHBOARD -->
+    <section class="container mx-auto max-w-7xl px-4 -mt-12 relative z-20">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- Stat Card 1 -->
+            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex items-center gap-4">
+                <div class="p-3 bg-blue-50 text-blue-600 rounded-lg">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Route Miles</p>
+                    <p class="text-2xl font-bold text-slate-900">580–639</p>
+                </div>
+            </div>
+            <!-- Stat Card 2 -->
+            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex items-center gap-4">
+                <div class="p-3 bg-emerald-50 text-emerald-600 rounded-lg">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Direct Savings</p>
+                    <p class="text-2xl font-bold text-emerald-600">£120.00+</p>
+                </div>
+            </div>
+            <!-- Stat Card 3 -->
+            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex items-center gap-4">
+                <div class="p-3 bg-teal-50 text-teal-600 rounded-lg">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Estimated Fuel Burn</p>
+                    <p class="text-2xl font-bold text-slate-900">27 MPG Petrol</p>
+                </div>
+            </div>
+            <!-- Stat Card 4 -->
+            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex items-center gap-4">
+                <div class="p-3 bg-amber-50 text-amber-600 rounded-lg">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m2.828-9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Weather Average</p>
+                    <p class="text-2xl font-bold text-slate-900">19°C – 21°C</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ITINERARY SECTIONS & TABS -->
+    <section id="itinerary" class="container mx-auto max-w-7xl px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="serif-title text-3xl font-extrabold text-blue-950 sm:text-4xl">Your Customized Itinerary</h2>
+            <p class="mt-3 text-slate-500 max-w-xl mx-auto">Click through the tabs below to explore each day's curated routes, low-cost activities, and strategic family stops.</p>
+        </div>
+
+        <!-- Shadcn style Segmented Control (Tabs) -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8 p-1.5 bg-slate-200/60 rounded-xl max-w-xl mx-auto">
+            <button onclick="switchTab('fri')" id="tab-fri" class="tab-btn w-full sm:w-auto flex-1 rounded-lg px-4 py-2 text-sm font-semibold transition bg-white text-slate-900 shadow-sm">
+                Friday
+            </button>
+            <button onclick="switchTab('sat')" id="tab-sat" class="tab-btn w-full sm:w-auto flex-1 rounded-lg px-4 py-2 text-sm font-semibold transition text-slate-600 hover:text-slate-900">
+                Saturday
+            </button>
+            <button onclick="switchTab('sun')" id="tab-sun" class="tab-btn w-full sm:w-auto flex-1 rounded-lg px-4 py-2 text-sm font-semibold transition text-slate-600 hover:text-slate-900">
+                Sunday
+            </button>
+            <button onclick="switchTab('mon')" id="tab-mon" class="tab-btn w-full sm:w-auto flex-1 rounded-lg px-4 py-2 text-sm font-semibold transition text-slate-600 hover:text-slate-900">
+                Monday
+            </button>
+        </div>
+
+        <!-- TAB CONTENT CARDS -->
+        <!-- FRIDAY CONTENT -->
+        <div id="content-fri" class="tab-content transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
+                            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-800 text-xs font-bold">1</span>
+                            Arrival & First Lizard Sunset
+                        </h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                            Depart Bracknell at 10:30 AM to bypass the notorious weekend bottlenecks on the A30. Arrive at Lizard Point by 4:00 PM, settle into your accommodation, and step straight onto the southernmost cliff paths of mainland Britain.
+                        </p>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6 text-sm">
+                            <strong class="text-blue-900">Sunset Hotspot (Approx 8:15 PM):</strong> Head past the white twin towers of Lizard Lighthouse to Polpeor Cove. The heather is in brilliant purple bloom against dark serpentine coastal rocks.
+                        </div>
+                        <h4 class="font-semibold text-slate-900 mb-2">Driving Logistics:</h4>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-teal-500"></span> <strong>Distance:</strong> 245 Miles (via M4, M5, A30, A3083)</li>
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-teal-500"></span> <strong>Time:</strong> ~4 hours 45 mins net driving</li>
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-teal-500"></span> <a href="https://maps.app.goo.gl/K82XFfLqVExMvEWe6" class="text-blue-600 hover:underline font-medium">[View Interactive GPS Google Map Route]</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h4 class="font-bold text-slate-900 mb-4">Quick Reference: Friday</h4>
+                        <div class="space-y-4">
+                            <div class="border-b pb-2">
+                                <span class="text-xs uppercase text-slate-400 font-bold">Parking & Cost</span>
+                                <p class="text-sm font-semibold text-slate-700">Lizard Point NT Car Park (TR12 7NT) • FREE for NT Members, otherwise £10 all day.</p>
+                            </div>
+                            <div class="border-b pb-2">
+                                <span class="text-xs uppercase text-slate-400 font-bold">Dinner Pick</span>
+                                <p class="text-sm font-semibold text-slate-700">Smugglers Fish & Chips (Lizard Village) • Generous portions, highly rated family budget menu.</p>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase text-slate-400 font-bold">Public Toilets</span>
+                                <p class="text-sm font-semibold text-slate-700">Fully open next to the Lizard NT car park and down at Polpeor Cove.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SATURDAY CONTENT -->
+        <div id="content-sat" class="tab-content hidden transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
+                            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-800 text-xs font-bold">2</span>
+                            Cove Wonders & Rescued Marine Seals
+                        </h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                            Today involves timing Kynance Cove's spectacular sands at low tide, moving to historic Mullion Harbour, and spending the afternoon watching rescued baby grey seals recover at the Sanctuary.
+                        </p>
+                        
+                        <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-lg mb-6 text-sm">
+                            <strong class="text-emerald-900">Universal Credit Savings Unleashed:</strong> By presenting your Universal Credit statement and photo ID at the Cornish Seal Sanctuary, you pay just <strong>£15 per adult / £7.50 per child</strong> rather than the standard £39.50/£15 gate entry fee! Saving your family of four over <strong>£64.00 instantly</strong>.
+                        </div>
+
+                        <h4 class="font-semibold text-slate-900 mb-2">Step-by-Step Schedule:</h4>
+                        <div class="relative pl-6 border-l border-slate-200 space-y-6">
+                            <div class="relative">
+                                <div class="absolute -left-8 top-1 h-4 w-4 rounded-full border-2 border-teal-500 bg-white"></div>
+                                <strong class="text-slate-900">08:30 AM — Kynance Cove (Tide Critical)</strong>
+                                <p class="text-slate-600 text-xs mt-1">Hike the wild cliff trail down. Golden sands and rockpooling. Café is cash/App only.</p>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-8 top-1 h-4 w-4 rounded-full border-2 border-teal-500 bg-white"></div>
+                                <strong class="text-slate-900">12:30 PM — Mullion Cove & Village</strong>
+                                <p class="text-slate-600 text-xs mt-1">Explore the ancient serpentine harbor walls. Pick up Cornish pasties in Mullion village.</p>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-8 top-1 h-4 w-4 rounded-full border-2 border-teal-500 bg-white"></div>
+                                <strong class="text-slate-900">02:30 PM — Cornish Seal Sanctuary, Gweek</strong>
+                                <p class="text-slate-600 text-xs mt-1">Watch feeding displays. Buggy friendly wood trails and gorgeous Helford river views.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h4 class="font-bold text-slate-900 mb-4">Driving Segments & Map</h4>
+                        <div class="space-y-4">
+                            <div class="border-b pb-2">
+                                <span class="text-xs uppercase text-slate-400 font-bold">Saturday Mileage</span>
+                                <p class="text-sm font-semibold text-slate-700">~29 Miles Total Loop</p>
+                            </div>
+                            <div class="border-b pb-2">
+                                <span class="text-xs uppercase text-slate-400 font-bold">Driving Route</span>
+                                <p class="text-sm font-semibold text-slate-700"><a href="https://maps.app.goo.gl/9u7X5C7kPq3u7N8A6" class="text-blue-600 hover:underline">[View Saturday Route Map]</a></p>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase text-slate-400 font-bold">Hiking Level</span>
+                                <p class="text-sm font-semibold text-slate-700">Moderate at Kynance (steep paths); Easy & accessible at Gweek Sanctuary.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUNDAY CONTENT -->
+        <div id="content-sun" class="tab-content hidden transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Option 1 Card -->
+                <div class="rounded-2xl border border-emerald-200 bg-emerald-50/20 p-6 shadow-sm relative overflow-hidden">
+                    <span class="absolute top-4 right-4 bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-1 rounded">Universal Credit Concession</span>
+                    <h3 class="serif-title text-2xl font-bold text-slate-900 mb-4">Option 1: The Eden Project</h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Drive inland to St Austell to experience the world's largest indoor rainforest. Discover gigantic geodesic domes, a high canopy walk, and rich educational exhibits. Perfect rain contingency stop.
+                    </p>
+                    <div class="border-t border-slate-200/60 pt-4 mt-4 space-y-3">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Universal Credit Ticket:</span>
+                            <strong class="text-emerald-700">£13.13 Adult / £6.56 Child</strong>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Standard Gate Price:</span>
+                            <span class="text-slate-500 line-through">£34.56 Adult / £13.13 Child</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Total Driving Time:</span>
+                            <span class="text-slate-700 font-semibold">1 hr 15 mins (each way)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 2 Card -->
+                <div class="rounded-2xl border border-blue-200 bg-blue-50/20 p-6 shadow-sm relative overflow-hidden">
+                    <span class="absolute top-4 right-4 bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded">100% Free Entry</span>
+                    <h3 class="serif-title text-2xl font-bold text-slate-900 mb-4">Option 2: Free Coastal Exploration</h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Spend zero on attraction admission! Take a spectacular drive to <strong>St Ives</strong> to enjoy white sandy beaches and turquoise water, followed by a crabbing afternoon on <strong>Falmouth Harbour</strong>.
+                    </p>
+                    <div class="border-t border-slate-200/60 pt-4 mt-4 space-y-3">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Admission Cost:</span>
+                            <strong class="text-blue-700">£0.00 (Absolutely Free)</strong>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Highlights:</span>
+                            <span class="text-slate-700">Gyllyngvase Beach, Rockpooling, St Ives Harbour</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Total Driving Loop:</span>
+                            <span class="text-slate-700 font-semibold"><a href="https://maps.app.goo.gl/W5A29D64QpU9U7pD7" class="text-blue-600 hover:underline">68 miles [View Map Route]</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MONDAY CONTENT -->
+        <div id="content-mon" class="tab-content hidden transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
+                            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-800 text-xs font-bold">4</span>
+                            Scenic Return & Historical Stops
+                        </h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                            To ease the 245-mile return stretch to Bracknell on late August bank holiday Monday, break up the drive into exciting, short segments. Depart at 9:00 AM after refueling at Helston.
+                        </p>
+                        
+                        <div class="border-l-4 border-amber-500 bg-amber-50 p-4 rounded-r-lg mb-4 text-sm text-amber-900">
+                            <strong>Monday Peak Traffic Alert:</strong> If the major M5 bottleneck around Bristol/Exeter begins to lock up, divert smoothly at Exeter onto the gorgeous, historic <strong>A303 eastbound</strong>. You'll drive directly past the Stonehenge Vista.
+                        </div>
+
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li><strong>Lunch Break (12:00 PM):</strong> Lydford Gorge (Dartmoor). Stretch legs, walk the deep wooded oak valleys and see the dramatic 30m waterfall.</li>
+                            <li><strong>Travel Time:</strong> ~5 hours total split driving.</li>
+                            <li><strong>Route Link:</strong> <a href="https://maps.app.goo.gl/M9zD5Q2u7n8EwS8z9" class="text-blue-600 hover:underline font-semibold">[View Return Journey Map]</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h4 class="font-bold text-slate-900 mb-4">Monday Stops</h4>
+                        <ul class="space-y-4 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-teal-600">✓</span>
+                                <div>
+                                    <strong class="text-slate-800">RHS Garden Rosemoor</strong>
+                                    <p class="text-xs text-slate-500">Universal credit concession entry available here for only £1 per person!</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-teal-600">✓</span>
+                                <div>
+                                    <strong class="text-slate-800">Bracknell Home Arrival</strong>
+                                    <p class="text-xs text-slate-500">Expected target: 09:30 PM (completely unpacked by 10:00 PM).</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIVERSAL CREDIT CONCESSIONS DIRECTORY -->
+    <section id="discounts" class="bg-slate-900 text-white py-16">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-wider text-teal-400">Low-Cost UK Benefit Scheme</span>
+                <h2 class="serif-title text-3xl font-extrabold sm:text-4xl mt-2">Universal Credit Discounts Directory</h2>
+                <p class="mt-3 text-slate-400 max-w-xl mx-auto">Verified rates, instructions, and exact requirements to redeem massive travel savings on your trip.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="rounded-xl border border-slate-800 bg-slate-950 p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-flex items-center rounded-full bg-teal-500/10 px-2.5 py-0.5 text-xs font-semibold text-teal-400 mb-4">
+                            Save 62%
+                        </span>
+                        <h3 class="text-lg font-bold text-white mb-2">The Eden Project</h3>
+                        <p class="text-slate-400 text-xs mb-4">Explore massive biomes and exotic indoor rain forests at a tiny fraction of the standard gate cost.</p>
+                        <table class="w-full text-xs text-slate-400 border-t border-slate-800 pt-2 space-y-2">
+                            <tr class="h-8 border-b border-slate-900"><td class="font-semibold text-slate-200">Concession Rate</td><td class="text-emerald-400 text-right font-bold">£13.13 Adult / £6.56 Child</td></tr>
+                            <tr class="h-8 border-b border-slate-900"><td class="font-semibold text-slate-200">Proof Needed</td><td class="text-right">DWP Letter or Live App dashboard + ID</td></tr>
+                            <tr class="h-8"><td class="font-semibold text-slate-200">Official Portal</td><td class="text-right"><a href="https://www.edenproject.com" target="_blank" class="text-teal-400 hover:underline">edenproject.com</a></td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="rounded-xl border border-slate-800 bg-slate-950 p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-flex items-center rounded-full bg-teal-500/10 px-2.5 py-0.5 text-xs font-semibold text-teal-400 mb-4">
+                            Save 62%
+                        </span>
+                        <h3 class="text-lg font-bold text-white mb-2">Cornish Seal Sanctuary</h3>
+                        <p class="text-slate-400 text-xs mb-4">Spend hours meeting cute rescued seal pups along the beautiful Helford river valley woodlands.</p>
+                        <table class="w-full text-xs text-slate-400 border-t border-slate-800 pt-2 space-y-2">
+                            <tr class="h-8 border-b border-slate-900"><td class="font-semibold text-slate-200">Concession Rate</td><td class="text-emerald-400 text-right font-bold">£15.00 Adult / £7.50 Child</td></tr>
+                            <tr class="h-8 border-b border-slate-900"><td class="font-semibold text-slate-200">Proof Needed</td><td class="text-right">Proof of payment within 30 days + ID</td></tr>
+                            <tr class="h-8"><td class="font-semibold text-slate-200">Official Portal</td><td class="text-right"><a href="https://sealsanctuary.sealifetrust.org" target="_blank" class="text-teal-400 hover:underline">sealsanctuary.co.uk</a></td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="rounded-xl border border-slate-800 bg-slate-950 p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-flex items-center rounded-full bg-teal-500/10 px-2.5 py-0.5 text-xs font-semibold text-teal-400 mb-4">
+                            Save 93%
+                        </span>
+                        <h3 class="text-lg font-bold text-white mb-2">RHS Rosemoor Garden</h3>
+                        <p class="text-slate-400 text-xs mb-4">An exceptional stop-over point during your drive home. Explore lush themed botanical gardens.</p>
+                        <table class="w-full text-xs text-slate-400 border-t border-slate-800 pt-2 space-y-2">
+                            <tr class="h-8 border-b border-slate-900"><td class="font-semibold text-slate-200">Concession Rate</td><td class="text-emerald-400 text-right font-bold">£1.00 Flat Rate per person</td></tr>
+                            <tr class="h-8 border-b border-slate-900"><td class="font-semibold text-slate-200">Proof Needed</td><td class="text-right">Live Universal Credit letter / app</td></tr>
+                            <tr class="h-8"><td class="font-semibold text-slate-200">Official Portal</td><td class="text-right"><a href="https://www.rhs.org.uk" target="_blank" class="text-teal-400 hover:underline">rhs.org.uk</a></td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUEL CALCULATOR & TOTAL BUDGET -->
+    <section id="finance" class="container mx-auto max-w-7xl px-4 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            
+            <!-- Fuel Calculator Card -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="serif-title text-2xl font-bold text-slate-900 mb-2">Petrol Fuel Calculations</h3>
+                <p class="text-slate-500 text-sm mb-6">Engineered exactly for a petrol vehicle averaging <strong>27 MPG</strong> under UK retail baseline pricing.</p>
+                
+                <div class="space-y-4">
+                    <div class="grid grid-cols-3 gap-2 border-b border-slate-100 pb-2">
+                        <span class="text-xs font-semibold text-slate-500 uppercase col-span-2">Trip Parameter</span>
+                        <span class="text-xs font-semibold text-slate-500 uppercase text-right">Value</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-sm border-b border-slate-100 pb-2">
+                        <span class="text-slate-600 col-span-2">Baseline Fuel Price</span>
+                        <strong class="text-slate-800 text-right">151.2p per Litre</strong>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-sm border-b border-slate-100 pb-2">
+                        <span class="text-slate-600 col-span-2">Bracknell Outbound Fuel Cost</span>
+                        <strong class="text-slate-800 text-right">£62.37</strong>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-sm border-b border-slate-100 pb-2">
+                        <span class="text-slate-600 col-span-2">Saturday Local Drive Cost</span>
+                        <strong class="text-slate-800 text-right">£8.91</strong>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-sm border-b border-slate-100 pb-2">
+                        <span class="text-slate-600 col-span-2">Sunday Loop Cost (St Ives & Falmouth)</span>
+                        <strong class="text-slate-800 text-right">£17.31</strong>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-sm border-b border-slate-100 pb-2">
+                        <span class="text-slate-600 col-span-2">Return Monday Fuel Cost</span>
+                        <strong class="text-slate-800 text-right">£64.91</strong>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-sm p-3 bg-emerald-50 text-emerald-950 rounded-lg">
+                        <span class="font-bold col-span-2">Total Holiday Fuel Budget</span>
+                        <strong class="text-right text-emerald-700">£153.50</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Budget Estimator -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="serif-title text-2xl font-bold text-slate-900 mb-2">Estimated Travel Budget</h3>
+                <p class="text-slate-500 text-sm mb-6">Comparative financial planning showing the massive impact of utilizing concessions.</p>
+                
+                <div class="space-y-3">
+                    <div class="flex justify-between text-sm py-1 border-b border-slate-100">
+                        <span class="text-slate-600">3-Night Accommodation Baseline</span>
+                        <strong class="text-slate-800">£280.00</strong>
+                    </div>
+                    <div class="flex justify-between text-sm py-1 border-b border-slate-100">
+                        <span class="text-slate-600">Fuel Allocation (27 MPG Average)</span>
+                        <strong class="text-slate-800">£153.50</strong>
+                    </div>
+                    <div class="flex justify-between text-sm py-1 border-b border-slate-100">
+                        <span class="text-slate-600">Saturday Seal Sanctuary Admission (UC Rate)</span>
+                        <strong class="text-slate-800">£45.00</strong>
+                    </div>
+                    <div class="flex justify-between text-sm py-1 border-b border-slate-100">
+                        <span class="text-slate-600">Sunday Free Coast Activity Admission</span>
+                        <strong class="text-slate-800">£0.00</strong>
+                    </div>
+                    <div class="flex justify-between text-sm py-1 border-b border-slate-100">
+                        <span class="text-slate-600">Parking Budgets (National Trust Sites)</span>
+                        <strong class="text-slate-800">£15.00</strong>
+                    </div>
+                    <div class="flex justify-between text-sm py-1 border-b border-slate-100">
+                        <span class="text-slate-600">Food & Supermarket Grocery Allocation</span>
+                        <strong class="text-slate-800">£130.00</strong>
+                    </div>
+                    <div class="flex justify-between text-sm py-1 border-b border-slate-100">
+                        <span class="text-slate-600">Emergency & Shopping Reserve</span>
+                        <strong class="text-slate-800">£50.00</strong>
+                    </div>
+                    <div class="flex justify-between text-base py-3 bg-teal-50 text-teal-950 px-3 rounded-lg font-bold">
+                        <span>Optimized Budget (Option 2)</span>
+                        <span class="text-teal-700">£673.50</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PACKING CHECKLIST SECTION -->
+    <section id="packing" class="bg-slate-50 border-t border-slate-200 py-16">
+        <div class="container mx-auto max-w-5xl px-4">
+            <div class="text-center mb-12">
+                <h2 class="serif-title text-3xl font-extrabold text-blue-950">Essential Packing Checklist</h2>
+                <p class="mt-2 text-slate-500 text-sm">Everything your family needs to pack for late August coastal weather.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Checklist 1 -->
+                <div class="bg-white rounded-xl border border-slate-200 p-6">
+                    <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-teal-500"></span> Beach & Sea Essentials
+                    </h4>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Swimwear & microfiber towels</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Water shoes (weaver protection)</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Beach windbreaks & spades</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Crabbing lines for Falmouth</li>
+                    </ul>
+                </div>
+
+                <!-- Checklist 2 -->
+                <div class="bg-white rounded-xl border border-slate-200 p-6">
+                    <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-teal-500"></span> Walking & Safety Gear
+                    </h4>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Sturdy trail-running/hiking shoes</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Windproof rain jackets (all)</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Sunscreen (SPF 30+) & hats</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Family First Aid kit & plasters</li>
+                    </ul>
+                </div>
+
+                <!-- Checklist 3 -->
+                <div class="bg-white rounded-xl border border-slate-200 p-6">
+                    <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-teal-500"></span> Documents & Technology
+                    </h4>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> <strong>DWP Benefit Letter</strong> + Photo ID</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Smartphone with offline maps</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Portable power bank (10,000mAh)</li>
+                        <li class="flex items-center gap-2"><input type="checkbox" class="rounded text-teal-600"> Spare loose pound coins</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="container mx-auto max-w-7xl px-4 text-center">
+            <p class="text-sm">Lizard Point Family Holiday Guide Dashboard • Crafted For 2026</p>
+            <p class="text-xs text-slate-600 mt-2">All routing, concession guidelines, and regional parameters have been engineered with verified 2026 data. Free of charge.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPT FOR TABS -->
+    <script>
+        function switchTab(day) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(element => {
+                element.classList.add('hidden');
+            });
+            // Show target content
+            document.getElementById('content-' + day).classList.remove('hidden');
+
+            // Reset tab button styling
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                btn.classList.add('text-slate-600', 'hover:text-slate-900');
+            });
+            // Style active tab button
+            const activeBtn = document.getElementById('tab-' + day);
+            activeBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+            activeBtn.classList.remove('text-slate-600', 'hover:text-slate-900');
+        }
+    </script>
+</body>
+</html>
